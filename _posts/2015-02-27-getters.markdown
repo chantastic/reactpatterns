@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "Getters"
+date:   2015-02-27 00:00:00
+---
+Prefix accessors with `get`:
+
+ES5
+
+{% highlight js %}
+// bad
+theFirstAndLastName: function () {
+  return {this.props.firstName} + ' ' + {this.props.lastName};
+}
+
+// good
+getFullName: function () {
+  return {this.props.firstName} + ' ' + {this.props.lastName};
+}
+{% endhighlight %}
+
+ES6
+
+{% highlight js %}
+// bad
+theFirstAndLastName(): {
+  return `${this.props.firstName} {this.props.lastName}`;
+}
+
+// good
+get fullName(): {
+  return `${this.props.firstName} {this.props.lastName}`;
+}
+{% endhighlight %}
