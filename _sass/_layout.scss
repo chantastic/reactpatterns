@@ -13,6 +13,8 @@
   padding: 2em 3em 3em 2em;
   overflow-y: scroll;
   width: 8rem;
+
+  -webkit-transform: translate3d(0,0,0); // scroll perf.
 }
 
 .site-body {
