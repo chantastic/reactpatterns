@@ -11,6 +11,8 @@ url: "http://reactpatterns.com" # the base hostname & protocol for your site
 twitter_username: learnreact
 github_username:  learnreact
 
+permalink: :title
+
 # Build settings
 markdown: kramdown
 highlighter: pygments
