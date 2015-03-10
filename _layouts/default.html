@@ -3,19 +3,20 @@
 
   {% include head.html %}
 
-  <body>
+  <body class="site-body">
 
-    {% include header.html %}
+    <main class="site-main">
+      {% include header.html %}
 
-    {% include legend.html %}
+      {{ content }}
+    </main>
 
-    <div>
-      <div>
-        {{ content }}
-      </div>
-    </div>
+    <aside class="site-aside">
 
-    {% include footer.html %}
+      <a href="{{ site.baseurl }}/">{{ site.title }}</a>
+
+      {% include legend.html %}
+    </aside>
 
   </body>
 

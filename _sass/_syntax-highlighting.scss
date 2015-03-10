@@ -65,3 +65,12 @@
     .vi    { color: #008080 } // Name.Variable.Instance
     .il    { color: #099 } // Literal.Number.Integer.Long
 }
+
+.highlight {
+  background-color: #f8f8f8;
+}
+
+.highlight pre {
+  padding: 2em;
+  font-size: .9em;
+}
