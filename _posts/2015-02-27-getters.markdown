@@ -3,32 +3,27 @@ layout: post
 title:  "Getters"
 date:   2015-02-27 00:00:00
 ---
-Prefix accessors with `get`:
+Getters **SHOULD** be used when accessing computed properties.
 
-ES5
-
+#### bad
 {% highlight js %}
-// bad
-theFirstAndLastName: function () {
-  return {this.props.firstName} + ' ' + {this.props.lastName};
+fullName() {
+  return `${this.props.firstName} {this.props.lastName}`;
 }
 
-// good
-getFullName: function () {
-  return {this.props.firstName} + ' ' + {this.props.lastName};
+render() {
+  return <h3>{this.fullName()}</h3>;
 }
+
 {% endhighlight %}
 
-ES6
-
+#### good
 {% highlight js %}
-// bad
-theFirstAndLastName(): {
+get fullName() {
   return `${this.props.firstName} {this.props.lastName}`;
 }
 
-// good
-get fullName(): {
-  return `${this.props.firstName} {this.props.lastName}`;
+render() {
+  return <h3>{this.fullName}</h3>;
 }
 {% endhighlight %}
