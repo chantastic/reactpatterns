@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Sub-render"
-date:   2015-11-14 00:00:00
+date:   2015-03-11 00:00:00
 ---
 Additional render function **SHOULD** be used when readability is a concern.
 

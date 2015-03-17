@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Higher-order Components"
-date:   2015-11-14 00:00:00
+date:   2015-03-11 00:00:00
 ---
 Higher-order components **SHOULD** be used to extend component functionality.
 
