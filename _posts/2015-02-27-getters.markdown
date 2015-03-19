@@ -6,7 +6,7 @@ date:   2015-02-27 00:00:00
 Getters **SHOULD** be used when accessing computed properties.
 
 #### bad
-{% highlight js %}
+{% highlight ts %}
 fullName() {
   return `${this.props.firstName} {this.props.lastName}`;
 }
@@ -18,7 +18,7 @@ render() {
 {% endhighlight %}
 
 #### good
-{% highlight js %}
+{% highlight ts %}
 get fullName() {
   return `${this.props.firstName} {this.props.lastName}`;
 }

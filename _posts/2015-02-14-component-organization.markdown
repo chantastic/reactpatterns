@@ -7,7 +7,7 @@ Function definitions **SHOULD** be predictably ordered.
 
 <br />
 
-{% highlight js %}
+{% highlight ts %}
 export default class MyComponent extends React.Component {
   constructor(props) {
     super(props);

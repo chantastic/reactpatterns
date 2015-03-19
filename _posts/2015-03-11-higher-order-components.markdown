@@ -9,7 +9,7 @@ Higher-order components **SHOULD** be used to extend component functionality.
 [Sebastion Markbåge](https://twitter.com/sebmarkbage).
 
 ### Enhance.js
-{% highlight js %}
+{% highlight ts %}
 import { Component } from "React";
  
 export var Enhance = ComposedComponent => class extends Component {
@@ -26,7 +26,7 @@ export var Enhance = ComposedComponent => class extends Component {
 {% endhighlight %}
 
 ### HigherOrderComponent.js
-{% highlight js %}
+{% highlight ts %}
 import { Enhance } from "./Enhance";
  
 class MyComponent {

@@ -5,7 +5,7 @@ date:   2015-03-11 00:00:00
 ---
 Additional render function **SHOULD** be used when readability is a concern.
 
-{% highlight js %}
+{% highlight ts %}
 render() {
   return <ul>{this.props.comments.map(renderItem)</ul>;
 }

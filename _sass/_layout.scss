@@ -3,6 +3,10 @@
  * http://coffeescript-cookbook.github.io/license
  */
 
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
 .site-aside {
   border-right: 1px solid #e0e5e6;
   background-color: #f0f5f6;

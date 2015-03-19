@@ -8,7 +8,7 @@ Static-View Components **MAY** be used to optimize layout components.
 
 Static-View Components **SHOULD** be named with a `Static` prefix.
 
-{% highlight js %}
+{% highlight ts %}
 export default class StaticTwoColumnRow extends React.Component {
   shouldComponentUpdate() {
     return false;
@@ -28,7 +28,7 @@ export default class StaticTwoColumnRow extends React.Component {
 }
 {% endhighlight %}
 
-{% highlight js %}
+{% highlight ts %}
 <App>
   <StaticTwoColumnRow>
     <div>Thing 1</div>

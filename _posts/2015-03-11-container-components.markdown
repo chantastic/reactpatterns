@@ -7,7 +7,7 @@ Container Components **SHOULD** be used to fetch for stateless components.
 
 ### Bad
 
-{% highlight js %}
+{% highlight ts %}
 // CommentList.js
 
 class CommentList extends React.Component {
@@ -37,7 +37,7 @@ class CommentList extends React.Component {
 
 ### Good
 
-{% highlight js %}
+{% highlight ts %}
 // CommentListContainer.js
 
 class CommentListContainer extends React.Component {
