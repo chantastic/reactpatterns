@@ -4,11 +4,13 @@ title:  "Static-View Component"
 date:   2015-03-17 00:00:00
 ---
 
+<div class="ff-serif">
 Static-View Components **MAY** be used to optimize layout components.
 
 Static-View Components **SHOULD** be named with a `Static` prefix.
+</div>
 
-{% highlight ts %}
+{% highlight js %}
 export default class StaticTwoColumnRow extends React.Component {
   shouldComponentUpdate() {
     return false;

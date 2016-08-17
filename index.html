@@ -2,7 +2,17 @@
 layout: default
 ---
 
-<p>
-  This site is dedecated to help you understand the patterns of React. It's
-  future looking. So, all examples are written in ES6.
-</p>
+<ul style="padding: 0">
+  {% for post in site.posts %}
+    <article style="margin-bottom: 10vw">
+      <h2 style="font-size: 1em;">
+        <a
+          class="black-link"
+          href="{{ post.url }}"
+        >{{ post.title }}</a>
+      </h2>
+
+      {{ post.content }}
+    </article>
+  {% endfor %}
+</ul>

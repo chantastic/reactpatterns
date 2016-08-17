@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html>
+{% include head.html %}
+<body>
+  <main>
+    <h1 style="margin-bottom: 10vw; font-size: 1em; font-weight: normal">
+      <a
+        class="black-link"
+        href="{{ site.baseurl }}"
+      >React Patterns</a>
+    </h1>
 
-  {% include head.html %}
+    {{ content }}
 
-  <body class="site-body">
-
-    <main class="site-main">
-      {% include header.html %}
-
-      {{ content }}
-    </main>
-
-    <aside class="site-aside">
-
-      <a href="{{ site.baseurl }}/">{{ site.title }}</a>
-
-      {% include legend.html %}
-    </aside>
-
-  </body>
-
+  </main>
+</body>
 </html>
