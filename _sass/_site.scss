@@ -26,12 +26,15 @@ body {
   font-style: italic;
 }
 
+article p {
+  font-family: Athelas, Georgia, serif;
+}
+
 .black-link { color: black; text-decoration: none; }
 .black-link:hover { color: black; text-decoration: underline; }
 
-.highlight { color: #ef2525 }
-
 .highlight { margin: 2rem 0 }
+
 .highlight pre {
   font-size: .9em;
   font-family:
