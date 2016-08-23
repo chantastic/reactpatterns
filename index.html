@@ -2,9 +2,26 @@
 layout: default
 ---
 
+<section style="margin-bottom: 15vw">
+  <h2 style="font-size: 1em;">Contents</h2>
+  <ul style="padding-left: 20px">
+    {% for post in site.posts reversed %}
+      <li>
+        <a
+          class="black-link"
+          href="#{{ post.title }}"
+        >{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
 <ul style="padding: 0">
-  {% for post in site.posts %}
-    <article style="margin-bottom: 10vw">
+  {% for post in site.posts reversed %}
+    <article
+      id="{{post.title}}"
+      style="margin-bottom: 15vw"
+    >
       <h2 style="font-size: 1em;">
         <a
           class="black-link"

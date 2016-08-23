@@ -3,14 +3,17 @@
 {% include head.html %}
 <body>
   <main>
-    <h1 style="margin-bottom: 10vw; font-size: 1em; font-weight: normal">
+    <h1 style="margin-bottom: 15vw; font-size: 1em; font-weight: normal">
       <a
         class="black-link"
         href="{{ site.baseurl }}"
       >React Patterns</a>
+      <span style="color: #aaa">[alpha]</span>
     </h1>
 
-    {{ content }}
+    <div style="max-width: 600px">
+      {{ content }}
+    </div>
 
   </main>
   <script>
