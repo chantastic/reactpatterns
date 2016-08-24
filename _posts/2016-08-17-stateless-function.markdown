@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Stateless Function"
+title:  "Stateless function"
 date:   2016-08-17 13:43:00
 ---
 

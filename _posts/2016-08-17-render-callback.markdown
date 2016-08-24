@@ -12,7 +12,7 @@ const Width = ({ children }) => children(500)
 
 The component calls `children` as a function, with some number of arguments. Here, it's the number `500`.
 
-To use this component, we give it a [function as `children`](./function-as-children).
+To use this component, we give it a [function as `children`](#Function as children).
 
 {% highlight ts %}
 <Width>
@@ -78,4 +78,4 @@ class WindowWidth extends React.Component {
 }
 {% endhighlight %}
 
-Alternatively, many developers favor [Higher Order Components](./higher-order-component) for this type of functionality.
+Alternatively, many developers favor [Higher Order Components](#Higher-order component) for this type of functionality.

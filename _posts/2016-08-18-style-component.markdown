@@ -4,7 +4,7 @@ title:  "Style component"
 date:   2016-08-18 10:03:00
 ---
 
-This is a [Proxy component](./proxy-component) applied to the practices of style.
+This is a [Proxy component](#Proxy component) applied to the practices of style.
 
 Say we have a button. It uses classes to be styled as a "primary" button.
 

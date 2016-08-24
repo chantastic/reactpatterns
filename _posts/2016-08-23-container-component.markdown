@@ -17,7 +17,7 @@ const CommentList = ({ comments }) =>
   </ul>
 {% endhighlight %}
 
-We can create a new component responsible for fetching data and re-rendering the unopinionated `CommentList` component.
+We can create a new component responsible for fetching data and rendering the stateless `CommentList` component.
 
 {% highlight ts %}
 class CommentListContainer extends React.Component {
