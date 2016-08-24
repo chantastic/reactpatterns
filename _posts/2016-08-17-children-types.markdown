@@ -22,7 +22,7 @@ React can render `children` of many types. In most cases it's either an `array` 
 </div>
 {% endhighlight %}
 
-Functions may be used as children. However, it will required special consideration to be useful.
+Functions may be used as children. However, it will required [coordination with the parent component](#Render callbacks) to be useful.
 
 `function`
 
