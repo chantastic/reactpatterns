@@ -12,7 +12,7 @@ Let's start with our stateless `Greeting` component.
 
 {% highlight ts %}
 const Greeting = ({ name }) => {
-  if (!data) { return <div>Connecting...</div> }
+  if (!name) { return <div>Connecting...</div> }
 
   return <div>Hi {name}!</div>
 }
@@ -34,7 +34,7 @@ const Connect = ComposedComponent =>
     }
 
     render() {
-      return <ComposedComponent {...this.props} data={this.state.data} />
+      return <ComposedComponent {...this.props} name={this.state.name} />
     }
   }
 {% endhighlight %}
