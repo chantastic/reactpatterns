@@ -15,22 +15,30 @@ These two examples are equivalent.
 <main {...{className: "main", role: "main", children}} />
 {% endhighlight %}
 
-Spread Attributes is handy where you want a component to proxy some `props` and past the rest along.
+There are a few cases this feature really shines. I use it all the time for my [#Stateless function] components. I get to apply `props` my component is concerned with, while keeping the component open other use cases.
+
+Look at this component that applies a className and fowards the remaining props.
 
 {% highlight ts %}
 const FancyDiv = props =>
   <div className="fancy" {...props} />
 {% endhighlight %}
 
-Order matters here. If `props.className` is define, it'll clobber the `className` definition (in the example above). If we want our component's `className` to win, it has to go after `{...props}`.
+I can give any DOM properties I want to `FancyDiv` and they'll get forwarded to the underlying div.
 
 {% highlight ts %}
-// our `className` clobbers your `className`
+<div data-id="my-fancy-div">So Fancy</div>
+{% endhighlight %}
+
+Order matters here. If `props.className` is defined, it'll clobber the `className` definition (in the example above). If we want our component's `className` to win, it has to go after `{...props}`.
+
+{% highlight ts %}
+// my `className` clobbers your `className`
 const FancyDiv = props =>
   <div {...props} className="fancy" />
 {% endhighlight %}
 
-In most cases, you're gonna have to trust people. Make your component durable by gracefully handling `props` your component is opinionated about.
+In most cases, you're just gonna have to trust people. Make your component durable by gracefully handling the `props` your component cares about.
 
 {% highlight ts %}
 const FancyDiv = ({ className, ...props }) =>
