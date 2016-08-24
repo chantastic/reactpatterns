@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "Event switch"
+date:   2016-08-23 08:19:00
+---
+
+When writing event handlers it's common to adop tho `handle{eventName}` naming convention.
+
+{% highlight ts %}
+handleClick(e) { /* do something */ }
+{% endhighlight %}
+
+For components that handle several event types, these function names can be repetitive. The names themselves might not provide much value, as they simply proxy to other actions/functions.
+
+{% highlight ts %}
+handleClick() { require("./actions/doStuff")(/* action detes */) }
+handleMouseEnter() { this.setState({ hovered: true }) }
+handleMouseLeave() { this.setState({ hovered: false }) }
+{% endhighlight %}
+
+Consider writing a single event handler for your component and switching on `event.type`.
+
+{% highlight ts %}
+handleEvent({type}) {
+  switch(type) {
+    case "click":
+      return require("./actions/doStuff")(/* action detes */)
+    case "mouseenter":
+      return this.setState({ hovered: true })
+    case "mouseenter":
+      return this.setState({ hovered: false })
+    default:
+      return console.warn(`The "${type}" event doesn't have function handler`)
+  }
+}
+{% endhighlight %}
+
+This isn't for everyone. For complex components, I prefer the simplicity of having one smart function.
+
+Alternatively, for simple components, you can call imported actions/functions directly from components, using arrow functions.
+
+{% highlight ts %}
+<div onClick={() => someImportedAction({ action: "DO_STUFF" })}
+{% endhighlight %}
+
+Don't fret about performance optimazations until you you have problems. Seriously don't.
