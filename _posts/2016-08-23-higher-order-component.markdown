@@ -34,7 +34,12 @@ const Connect = ComposedComponent =>
     }
 
     render() {
-      return <ComposedComponent {...this.props} name={this.state.name} />
+      return (
+        <ComposedComponent
+          {...this.props}
+          name={this.state.name}
+        />
+      )
     }
   }
 {% endhighlight %}
