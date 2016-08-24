@@ -12,7 +12,7 @@ Say we have a button. It uses classes to be styled as a "primary" button.
 <button type="button" className="btn btn-primary">
 {% endhighlight %}
 
-We can generate this output using a coulpe single-purpose components.
+We can generate this output using a couple single-purpose components.
 
 {% highlight ts %}
 const PrimaryBtn = props =>
