@@ -4,20 +4,38 @@ title:  "JSX Spread Attributes"
 date:   2016-08-17 14:26:00
 ---
 
-Spread Attributes is a feature of JSX. It provides a convenient way to pass each property of an object as JSX attribute.
+Spread Attributes is a JSX feature. It's syntactic sugar for passing all of an object's properties as JSX attributes.
+
+These two examples are equivalent.
+{% highlight ts %}
+// props written as attributes
+<main className="main" role="main">{children}</main>
+
+// props "spread" from object
+<main {...{className: "main", role: "main", children}} />
+{% endhighlight %}
+
+Spread Attributes is handy where you want a component to proxy some `props` and past the rest along.
 
 {% highlight ts %}
 const FancyDiv = props =>
   <div className="fancy" {...props} />
 {% endhighlight %}
 
-Order matters. In the example above. `className="fancy"` will get clobbered by a `className` definition in `props`. In the example below. `className="fancy"` will clobber any definition in `props`.
+Order matters here. If `props.className` is define, it'll clobber the `className` definition (in the example above). If we want our component's `className` to win, it has to go after `{...props}`.
 
 {% highlight ts %}
+// our `className` clobbers your `className`
 const FancyDiv = props =>
   <div {...props} className="fancy" />
 {% endhighlight %}
 
-This can make very durable components. But know that React will log warnings if you you attempt to use any non-DOM elements on a native element.
+In most cases, you're gonna have to trust people. Make your component durable by gracefully handling `props` your component is opinionated about.
 
-Read Destructuring Arguments for a good, general solution to this problem.
+{% highlight ts %}
+const FancyDiv = ({ className, ...props }) =>
+  <div
+    className={["fancy", className].join(' ')}
+    {...props}
+  />
+{% endhighlight %}

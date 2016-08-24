@@ -4,7 +4,7 @@ title:  "Style component"
 date:   2016-08-18 10:03:00
 ---
 
-This is the pattern of partially applied components, applied specifically to style.
+This is a [Proxy component](./proxy-component) applied to the practices of style.
 
 Say we have a button. It uses classes to be styled as a "primary" button.
 
@@ -12,14 +12,15 @@ Say we have a button. It uses classes to be styled as a "primary" button.
 <button type="button" className="btn btn-primary">
 {% endhighlight %}
 
-We can construct this using components single-purpose components.
+We can generate this output using a coulpe single-purpose components.
 
 {% highlight ts %}
 const PrimaryBtn = props =>
   <Btn {...props} primary />
 
-const Btn = ({ classNmae, primary, ...props }) =>
-  <Button
+const Btn = ({ className, primary, ...props }) =>
+  <button
+    type="button"
     className={classnames(
       "btn",
       primary && "btn-primary",
@@ -27,18 +28,22 @@ const Btn = ({ classNmae, primary, ...props }) =>
     )}
     {...props}
   />
-
-const Button = props =>
-  <button type="button" {...props} />
 {% endhighlight %}
 
-Now these are all equivalent.
+It can help to visualize this.
+
+{% highlight ts%}
+PrimaryBtn()
+  ↳ Btn({primary: true})
+    ↳ Button({className: "btn btn-primary"}, type: "button"})
+      ↳ '<button type="button" class="btn btn-primary"></button>'
+{% endhighlight %}
+
+Using these components, all of these result in the same output.
 {% highlight ts %}
 <PrimaryBtn />
 <Btn primary />
-<Btn className="btn-primary" />
-<Button className="btn btn-primary" />
 <button type="button" className="btn btn-primary" />
 {% endhighlight %}
 
-The benefit of style componenst this way is that we isolate ourselves from the underlying style implementation. Now we have one place where CSS classes are applied in our React application. This is a huge maintainability win.
+This can be a be a huge boon to style maintenance. It isolates all concerns about style to a single component.

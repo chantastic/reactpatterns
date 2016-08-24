@@ -4,9 +4,9 @@ title:  "Layout component"
 date:   2016-08-23 08:19:00
 ---
 
-Layout components referes to a component that renders some DOM and doesn't need may not need to be updated. I'll focus here on the aggressive approach to layout components, which is to never re-render them.
+Layout components result in some for of static DOM element. It might not need to update frequently, if ever.
 
-Say you have a `HorizontalSplit` component that renders two components, one left, one right. It might look like this, in practice.
+Consider a component that renders two `children` side-by-side.
 
 {% highlight ts %}
 <HorizontalSplit
@@ -15,7 +15,9 @@ Say you have a `HorizontalSplit` component that renders two components, one left
 />
 {% endhighlight %}
 
-While `HorizontalSplit` will be the `parent` of the two children components, it will never be the `owner`. This means we can aggressively optimize our `HorizontalSplit` component without affecting the children.
+We can aggressively optimize this component.
+
+While `HorizontalSplit` will be `parent` to both components, it will never be their `owner`. We can tell it to update never, without affecting the updating components inside.
 
 {% highlight ts %}
 class HorizantalSplit extends React.Component {

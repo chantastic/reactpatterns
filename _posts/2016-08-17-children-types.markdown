@@ -4,15 +4,13 @@ title:  "Children Types"
 date:   2016-08-17 17:20:00
 ---
 
-React accepts a number types as `children`. Here are some examples uses.
-
-By default everything you put inside a JSX tag is a string. Any other type needs to be escaped out of JSX, using curly-braces.
+React can render `children` of many types. In most cases it's either an `array` or a `string`.
 
 `string`
 
 {% highlight ts %}
 <div>
-  A String.
+  Hello World!
 </div>
 {% endhighlight %}
 
@@ -20,19 +18,16 @@ By default everything you put inside a JSX tag is a string. Any other type needs
 
 {% highlight ts %}
 <div>
-  {[
-    "Hello ",
-    <span>World</span>,
-    "!",
-  ,
-  ]}
+  {["Hello ", <span>World</span>, "!"]}
 </div>
 {% endhighlight %}
+
+Functions may be used as children. However, it will required special consideration to be useful.
 
 `function`
 
 {% highlight ts %}
 <div>
-  {() => ["Hello", "World."].join(' ')}
+  {() => { return "hello world!"}()}
 </div>
 {% endhighlight %}

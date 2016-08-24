@@ -1,30 +1,29 @@
 ---
 layout: post
-title:  "Stateless Functions"
+title:  "Stateless Function"
 date:   2016-08-17 13:43:00
 ---
 
-Stateless functions syntax is the ideal way to define reusable components.
-
+[Stateless functions](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) are a brilliant way to define highly reusable components.
 They don't hold `state` or `refs`; they're just functions.
 
 {% highlight ts %}
 const Greeting = () => <div>Hi there!</div>
 {% endhighlight %}
 
-These functions have access to `props` and `context`.
+They get passed `props` and `context`.
 
 {% highlight ts %}
 {% raw ts %}
-const Greeting = props, contex =>
+const Greeting = (props, contex) =>
   <div style={{color: context.color}}>Hi {props.name}!</div>
 {% endraw %}
 {% endhighlight %}
 
-You can create local variables by using a function block.
+They can define local variables when a function block is used.
 
 {% highlight ts %}
-const Greeting = props, contex => {
+const Greeting = (props, contex) => {
   const style = {
     fontWeight: "bold",
     color: contex.color,
@@ -34,7 +33,7 @@ const Greeting = props, contex => {
 }
 {% endhighlight %}
 
-You could do the same thing with functions.
+But you could get the same affect with other fuctions.
 
 {% highlight ts %}
 const getStyle = context => ({
@@ -42,24 +41,13 @@ const getStyle = context => ({
   color: contex.color,
 })
 
-const Greeting = props, contex =>
+const Greeting = (props, contex) =>
   <div style={getStyle(context)}>{props.name}</div>
 {% endhighlight %}
 
-Wrapping the returned function in `()` might make your editor a little happier.
+They can have `defaultProps`, `propTypes` and `contextTypes`.
 
 {% highlight ts %}
-const Greeting = props, contex => (
-  <div style={getStyle(context)}>{props.name}</div>
-)
-{% endhighlight %}
-
-Stateless functions can have `defaultProps` and `propTypes` and `contextTypes`.
-
-{% highlight ts %}
-const Greeting = props, contex => (
-  <div style={getStyle(context)}>{props.name}</div>
-)
 Greeting.propTypes = {
   name: PropTypes.string.isRequired
 }
