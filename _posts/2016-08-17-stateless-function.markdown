@@ -33,7 +33,7 @@ const Greeting = (props, contex) => {
 }
 {% endhighlight %}
 
-But you could get the same affect with other fuctions.
+But you could get the same affect with other functions.
 
 {% highlight ts %}
 const getStyle = context => ({
