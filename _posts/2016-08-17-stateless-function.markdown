@@ -20,7 +20,7 @@ const Greeting = (props, context) =>
 {% endraw %}
 {% endhighlight %}
 
-They can define local variables when a function block is used.
+They can define local variables, where a function block is used.
 
 {% highlight ts %}
 const Greeting = (props, context) => {
@@ -33,7 +33,7 @@ const Greeting = (props, context) => {
 }
 {% endhighlight %}
 
-But you could get the same affect with other functions.
+You could get the same affect with other functions.
 
 {% highlight ts %}
 const getStyle = context => ({
