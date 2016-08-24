@@ -30,7 +30,7 @@ handleEvent({type}) {
     case "mouseenter":
       return this.setState({ hovered: false })
     default:
-      return console.warn(`The "${type}" event doesn't have function handler`)
+      return console.warn(`No case for event type "${type}"`)
   }
 }
 {% endhighlight %}
