@@ -4,7 +4,7 @@ title:  "Conditional Rendering"
 date:   2016-08-17 15:16:00
 ---
 
-You can't use regular if/else conditions inside a `render` function. [The conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) is your friend.
+You can't use regular if/else conditions inside a component definition. [The conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) is your friend.
 
 `if`
 
