@@ -15,7 +15,7 @@ These two examples are equivalent.
 <main {...{className: "main", role: "main", children}} />
 {% endhighlight %}
 
-There are a few cases this feature really shines. I use it all the time for my [#Stateless function] components. I get to apply `props` my component is concerned with, while keeping the component open other use cases.
+There are a few cases this feature really shines. I use it all the time for my [stateless function components](#Stateless function). I get to apply `props` my component is concerned with, while keeping the component open other use cases.
 
 Look at this component that applies a className and fowards the remaining props.
 
