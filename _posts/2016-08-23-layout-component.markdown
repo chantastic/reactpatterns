@@ -4,7 +4,7 @@ title:  "Layout component"
 date:   2016-08-23 08:19:00
 ---
 
-Layout components result in some for of static DOM element. It might not need to update frequently, if ever.
+Layout components result in some form of static DOM element. It might not need to update frequently, if ever.
 
 Consider a component that renders two `children` side-by-side.
 
