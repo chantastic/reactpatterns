@@ -15,22 +15,30 @@ These two examples are equivalent.
 <main {...{className: "main", role: "main", children}} />
 {% endhighlight %}
 
-There are a few cases this feature really shines. I use it all the time for my [stateless function components](#Stateless function). I get to apply `props` my component is concerned with, while keeping the component open other use cases.
-
-Look at this component that applies a className and fowards the remaining props.
+Use this to forward `props` to underlying components.
 
 {% highlight ts %}
 const FancyDiv = props =>
   <div className="fancy" {...props} />
 {% endhighlight %}
 
-I can give any DOM properties I want to `FancyDiv` and they'll get forwarded to the underlying div.
+Now, I can expect `FancyDiv` to add the attributes it's concerned with as well as those it's not.
 
 {% highlight ts %}
-<div data-id="my-fancy-div">So Fancy</div>
+<FancyDiv data-id="my-fancy-div">So Fancy</FancyDiv>
+
+// output: <div className="fancy" data-id="my-fancy-div">So Fancy</div>
 {% endhighlight %}
 
-Order matters here. If `props.className` is defined, it'll clobber the `className` definition (in the example above). If we want our component's `className` to win, it has to go after `{...props}`.
+Keep in mind that order matters. If `props.className` is defined, it'll clobber the `className` defined by `FancyDiv`
+
+{% highlight ts %}
+<FancyDiv className="my-fancy-div" />
+
+// output: <div className="my-fancy-div"></div>
+{% endhighlight %}
+
+We can make `FancyDiv`s className always "win" by placing it after the spread props `({...props})`.
 
 {% highlight ts %}
 // my `className` clobbers your `className`
@@ -38,7 +46,7 @@ const FancyDiv = props =>
   <div {...props} className="fancy" />
 {% endhighlight %}
 
-In most cases, you're just gonna have to trust people. Make your component durable by gracefully handling the `props` your component cares about.
+You should handle these types of props gracefully. In this case, I'll merge the author's `props.className` with the `className` needed to style my component.
 
 {% highlight ts %}
 const FancyDiv = ({ className, ...props }) =>

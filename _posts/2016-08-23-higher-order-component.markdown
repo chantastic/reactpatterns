@@ -4,7 +4,7 @@ title:  "Higher-order component"
 date:   2016-08-23 08:52:00
 ---
 
-A [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) is a function takes and/or returns a function. It's not more complicated than that. So, what's a higher-order component?
+A [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) is a function that takes and/or returns a function. It's not more complicated than that. So, what's a higher-order component?
 
 If you're already using [container components](#Container component), these are just generic containers, wrapped up in a function.
 

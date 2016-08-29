@@ -6,7 +6,7 @@ date:   2016-08-23 08:52:00
 
 "A container does data fetching and then renders its corresponding sub-component. That’s it."&mdash;[Jason Bonta](https://twitter.com/jasonbonta)
 
-So, given a reusable `CommentList` component.
+Given this reusable `CommentList` component.
 
 {% highlight ts %}
 const CommentList = ({ comments }) =>

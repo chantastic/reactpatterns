@@ -4,7 +4,7 @@ title:  "Render callback"
 date:   2016-08-17 17:27:00
 ---
 
-This a component that uses a Render callback. It does so a way that's not useful but it's good for illustration.
+Here's a component that uses a Render callback. It's not useful, but it's an easy illustration to start with.
 
 {% highlight ts %}
 const Width = ({ children }) => children(500)
@@ -20,13 +20,13 @@ To use this component, we give it a [function as `children`](#Function as childr
 </Width>
 {% endhighlight %}
 
-We get output that looks like this.
+We get this output.
 
 {% highlight ts %}
 <div>window is 500</div>
 {% endhighlight %}
 
-We can use this `width` value to make rendering decisions.
+With this setup, we can use this `width` to make rendering decisions.
 
 {% highlight ts %}
 <Width>
@@ -52,7 +52,7 @@ const MinWidth = ({ width: minWidth, children }) =>
 {% endhighlight %}
 
 
-Obviously a static `Width` component isn't valuable but one that watches the browser window is. Here's a sample implementation.
+Obviously a static `Width` component isn't useful but one that watches the browser window is. Here's a sample implementation.
 
 {% highlight ts %}
 class WindowWidth extends React.Component {
@@ -78,4 +78,4 @@ class WindowWidth extends React.Component {
 }
 {% endhighlight %}
 
-Alternatively, many developers favor [Higher Order Components](#Higher-order component) for this type of functionality.
+Many developers favor [Higher Order Components](#Higher-order component) for this type of functionality. It's a matter of preference.

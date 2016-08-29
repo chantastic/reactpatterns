@@ -46,4 +46,4 @@ Using these components, all of these result in the same output.
 <button type="button" className="btn btn-primary" />
 {% endhighlight %}
 
-This can be a be a huge boon to style maintenance. It isolates all concerns about style to a single component.
+This can be a huge boon to style maintenance. It isolates all concerns of style to a single component.

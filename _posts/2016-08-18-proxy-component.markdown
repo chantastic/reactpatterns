@@ -6,7 +6,7 @@ date:   2016-08-18 10:03:00
 
 *(I'm not sure if this name makes sense)*
 
-Buttons are everywhere in webapps. And every one of them must have the `type` attribute set to "button".
+Buttons are everywhere in web apps. And every one of them must have the `type` attribute set to "button".
 
 {% highlight ts %}
 <button type="button">

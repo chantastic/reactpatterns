@@ -33,7 +33,7 @@ const Greeting = (props, context) => {
 }
 {% endhighlight %}
 
-You could get the same affect with other functions.
+But you you could get the same result by using another other functions.
 
 {% highlight ts %}
 const getStyle = context => ({
@@ -45,7 +45,7 @@ const Greeting = (props, context) =>
   <div style={getStyle(context)}>{props.name}</div>
 {% endhighlight %}
 
-They can have `defaultProps`, `propTypes` and `contextTypes`.
+They can have defined `defaultProps`, `propTypes` and `contextTypes`.
 
 {% highlight ts %}
 Greeting.propTypes = {

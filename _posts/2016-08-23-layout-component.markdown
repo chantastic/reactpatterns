@@ -17,7 +17,7 @@ Consider a component that renders two `children` side-by-side.
 
 We can aggressively optimize this component.
 
-While `HorizontalSplit` will be `parent` to both components, it will never be their `owner`. We can tell it to update never, without affecting the updating components inside.
+While `HorizontalSplit` will be `parent` to both components, it will never be their `owner`. We can tell it to update never, without interrupting the lifecycle of the components inside.
 
 {% highlight ts %}
 class HorizontalSplit extends React.Component {
