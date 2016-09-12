@@ -27,7 +27,7 @@ handleEvent({type}) {
       return require("./actions/doStuff")(/* action dates */)
     case "mouseenter":
       return this.setState({ hovered: true })
-    case "mouseenter":
+    case "mouseleave":
       return this.setState({ hovered: false })
     default:
       return console.warn(`No case for event type "${type}"`)
