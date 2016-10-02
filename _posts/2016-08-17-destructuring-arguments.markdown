@@ -20,7 +20,7 @@ const Greeting = ({ name, ...props }) =>
   <div>Hi {name}!</div>
 {% endhighlight %}
 
-In turn, this object can use [JSX Spread Attributes](#JSX Spread Attributes) to forword `props` to the composed component.
+In turn, this object can use [JSX Spread Attributes](#JSX Spread Attributes) to forward `props` to the composed component.
 
 {% highlight ts %}
 const Greeting = ({ name, ...props }) =>
