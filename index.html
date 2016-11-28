@@ -50,16 +50,18 @@ code, .highlight pre{font-size: .9em}
 </ul>
 <h2 id="stateless-function">Stateless function</h2>
 <p><a href="https://facebook.github.io/react/docs/components-and-props.html">Stateless functions</a> are a brilliant way to define highly reusable components. They don’t hold <code>state</code> or <code>refs</code>; they’re just functions.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="nx">there</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="nx">there</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><p>They get passed <code>props</code> and <code>context</code>.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span>
+</code></pre>
+<p>They get passed <code>props</code> and <code>context</code>.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{{</span><span class="nx">color</span><span class="o">:</span> <span class="nx">context</span><span class="p">.</span><span class="nx">color</span><span class="p">}}</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><p>They can define local variables, where a function block is used.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</code></pre>
+<p>They can define local variables, where a function block is used.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">style</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">fontWeight</span><span class="o">:</span> <span class="s2">&quot;bold&quot;</span><span class="p">,</span>
     <span class="nx">color</span><span class="o">:</span> <span class="nx">context</span><span class="p">.</span><span class="nx">color</span><span class="p">,</span>
@@ -69,8 +71,9 @@ code, .highlight pre{font-size: .9em}
 <span class="p">}</span>
 </pre></div>
 
-</code></pre><p>But you could get the same result by using other functions.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">getStyle</span> <span class="o">=</span> <span class="nx">context</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</code></pre>
+<p>But you could get the same result by using other functions.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">getStyle</span> <span class="o">=</span> <span class="nx">context</span> <span class="o">=&gt;</span> <span class="p">({</span>
   <span class="nx">fontWeight</span><span class="o">:</span> <span class="s2">&quot;bold&quot;</span><span class="p">,</span>
   <span class="nx">color</span><span class="o">:</span> <span class="nx">context</span><span class="p">.</span><span class="nx">color</span><span class="p">,</span>
 <span class="p">})</span>
@@ -79,8 +82,9 @@ code, .highlight pre{font-size: .9em}
   <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">getStyle</span><span class="p">(</span><span class="nx">context</span><span class="p">)}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><p>They can have defined <code>defaultProps</code>, <code>propTypes</code> and <code>contextTypes</code>.</p>
-<pre><code><div class="highlight"><pre><span class="nx">Greeting</span><span class="p">.</span><span class="nx">propTypes</span> <span class="o">=</span> <span class="p">{</span>
+</code></pre>
+<p>They can have defined <code>defaultProps</code>, <code>propTypes</code> and <code>contextTypes</code>.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="nx">Greeting</span><span class="p">.</span><span class="nx">propTypes</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">name</span><span class="o">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">string</span><span class="p">.</span><span class="nx">isRequired</span>
 <span class="p">}</span>
 <span class="nx">Greeting</span><span class="p">.</span><span class="nx">defaultProps</span> <span class="o">=</span> <span class="p">{</span>
@@ -91,85 +95,98 @@ code, .highlight pre{font-size: .9em}
 <span class="p">}</span>
 </pre></div>
 
-</code></pre><h2 id="jsx-spread-attributes">JSX spread attributes</h2>
+</code></pre>
+<h2 id="jsx-spread-attributes">JSX spread attributes</h2>
 <p>Spread Attributes is a JSX feature. It’s syntactic sugar for passing all of an object’s properties as JSX attributes.</p>
 <p>These two examples are equivalent.</p>
-<pre><code><div class="highlight"><pre><span class="c1">// props written as attributes</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="c1">// props written as attributes</span>
 <span class="o">&lt;</span><span class="nx">main</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;main&quot;</span> <span class="nx">role</span><span class="o">=</span><span class="s2">&quot;main&quot;</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/main&gt;</span>
 
 <span class="c1">// props &quot;spread&quot; from object</span>
 <span class="o">&lt;</span><span class="nx">main</span> <span class="p">{...{</span><span class="nx">className</span><span class="o">:</span> <span class="s2">&quot;main&quot;</span><span class="p">,</span> <span class="nx">role</span><span class="o">:</span> <span class="s2">&quot;main&quot;</span><span class="p">,</span> <span class="nx">children</span><span class="p">}}</span> <span class="o">/&gt;</span>
 </pre></div>
 
-</code></pre><p>Use this to forward <code>props</code> to underlying components.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">FancyDiv</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span>
+</code></pre>
+<p>Use this to forward <code>props</code> to underlying components.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">FancyDiv</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;fancy&quot;</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span> <span class="o">/&gt;</span>
 </pre></div>
 
-</code></pre><p>Now, I can expect <code>FancyDiv</code> to add the attributes it’s concerned with as well as those it’s not.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">FancyDiv</span> <span class="nx">data</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;my-fancy-div&quot;</span><span class="o">&gt;</span><span class="nx">So</span> <span class="nx">Fancy</span><span class="o">&lt;</span><span class="err">/FancyDiv&gt;</span>
+</code></pre>
+<p>Now, I can expect <code>FancyDiv</code> to add the attributes it’s concerned with as well as those it’s not.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">FancyDiv</span> <span class="nx">data</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;my-fancy-div&quot;</span><span class="o">&gt;</span><span class="nx">So</span> <span class="nx">Fancy</span><span class="o">&lt;</span><span class="err">/FancyDiv&gt;</span>
 
 <span class="c1">// output: &lt;div className=&quot;fancy&quot; data-id=&quot;my-fancy-div&quot;&gt;So Fancy&lt;/div&gt;</span>
 </pre></div>
 
-</code></pre><p>Keep in mind that order matters. If <code>props.className</code> is defined, it’ll clobber the <code>className</code> defined by <code>FancyDiv</code></p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">FancyDiv</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;my-fancy-div&quot;</span> <span class="o">/&gt;</span>
+</code></pre>
+<p>Keep in mind that order matters. If <code>props.className</code> is defined, it’ll clobber the <code>className</code> defined by <code>FancyDiv</code></p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">FancyDiv</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;my-fancy-div&quot;</span> <span class="o">/&gt;</span>
 
 <span class="c1">// output: &lt;div className=&quot;my-fancy-div&quot;&gt;&lt;/div&gt;</span>
 </pre></div>
 
-</code></pre><p>We can make <code>FancyDiv</code>s className always “win” by placing it after the spread props <code>({...props})</code>.</p>
-<pre><code><div class="highlight"><pre><span class="c1">// my `className` clobbers your `className`</span>
+</code></pre>
+<p>We can make <code>FancyDiv</code>s className always “win” by placing it after the spread props <code>({...props})</code>.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="c1">// my `className` clobbers your `className`</span>
 <span class="kr">const</span> <span class="nx">FancyDiv</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">div</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;fancy&quot;</span> <span class="o">/&gt;</span>
 </pre></div>
 
-</code></pre><p>You should handle these types of props gracefully. In this case, I’ll merge the author’s <code>props.className</code> with the <code>className</code> needed to style my component.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">FancyDiv</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">className</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">})</span> <span class="o">=&gt;</span>
+</code></pre>
+<p>You should handle these types of props gracefully. In this case, I’ll merge the author’s <code>props.className</code> with the <code>className</code> needed to style my component.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">FancyDiv</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">className</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">})</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">div</span>
     <span class="nx">className</span><span class="o">=</span><span class="p">{[</span><span class="s2">&quot;fancy&quot;</span><span class="p">,</span> <span class="nx">className</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)}</span>
     <span class="p">{...</span><span class="nx">props</span><span class="p">}</span>
   <span class="o">/&gt;</span>
 </pre></div>
 
-</code></pre><h2 id="destructuring-arguments">destructuring arguments</h2>
+</code></pre>
+<h2 id="destructuring-arguments">destructuring arguments</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring assignment</a> is an ES2015 feature. It pairs nicely with <code>props</code> in Stateless Functions.</p>
 <p>These examples are equivalent.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
 
 <span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters">rest parameter syntax</a> (<code>...</code>) allows you to collect all the remaining properties in a new object.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">})</span> <span class="o">=&gt;</span>
+</code></pre>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters">rest parameter syntax</a> (<code>...</code>) allows you to collect all the remaining properties in a new object.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">})</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><p>In turn, this object can use <a href="#JSX Spread Attributes">JSX Spread Attributes</a> to forward <code>props</code> to the composed component.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">})</span> <span class="o">=&gt;</span>
+</code></pre>
+<p>In turn, this object can use <a href="#JSX Spread Attributes">JSX Spread Attributes</a> to forward <code>props</code> to the composed component.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">})</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">div</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><p>Avoid forwarding non-DOM <code>props</code> to composed components. Destructuring makes this very easy because you can create a new <code>props</code> object <strong>without</strong> component-specific <code>props</code>.</p>
+</code></pre>
+<p>Avoid forwarding non-DOM <code>props</code> to composed components. Destructuring makes this very easy because you can create a new <code>props</code> object <strong>without</strong> component-specific <code>props</code>.</p>
 <h2 id="conditional-rendering">conditional rendering</h2>
 <p>You can’t use regular if/else conditions inside a component definition. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator">The conditional (ternary) operator</a> is your friend.</p>
 <p><code>if</code></p>
-<pre><code><div class="highlight"><pre><span class="p">{</span><span class="nx">condition</span> <span class="o">&amp;&amp;</span> <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">Rendered</span> <span class="nx">when</span> <span class="err">`</span><span class="nx">truthy</span><span class="err">`</span><span class="o">&lt;</span><span class="err">/span&gt; }</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="p">{</span><span class="nx">condition</span> <span class="o">&amp;&amp;</span> <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">Rendered</span> <span class="nx">when</span> <span class="err">`</span><span class="nx">truthy</span><span class="err">`</span><span class="o">&lt;</span><span class="err">/span&gt; }</span>
 </pre></div>
 
-</code></pre><p><code>unless</code></p>
-<pre><code><div class="highlight"><pre><span class="p">{</span><span class="nx">condition</span> <span class="o">||</span> <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">Rendered</span> <span class="nx">when</span> <span class="err">`</span><span class="nx">falsey</span><span class="err">`</span><span class="o">&lt;</span><span class="err">/span&gt; }</span>
+</code></pre>
+<p><code>unless</code></p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="p">{</span><span class="nx">condition</span> <span class="o">||</span> <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">Rendered</span> <span class="nx">when</span> <span class="err">`</span><span class="nx">falsey</span><span class="err">`</span><span class="o">&lt;</span><span class="err">/span&gt; }</span>
 </pre></div>
 
-</code></pre><p><code>if-else</code> (tidy one-liners)</p>
-<pre><code><div class="highlight"><pre><span class="p">{</span><span class="nx">condition</span>
+</code></pre>
+<p><code>if-else</code> (tidy one-liners)</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="p">{</span><span class="nx">condition</span>
   <span class="o">?</span> <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">Rendered</span> <span class="nx">when</span> <span class="err">`</span><span class="nx">truthy</span><span class="err">`</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
   <span class="o">:</span> <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">Rendered</span> <span class="nx">when</span> <span class="err">`</span><span class="nx">falsey</span><span class="err">`</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
 <span class="p">}</span>
 </pre></div>
 
-</code></pre><p><code>if-else</code> (big blocks)</p>
-<pre><code><div class="highlight"><pre><span class="p">{</span><span class="nx">condition</span> <span class="o">?</span> <span class="p">(</span>
+</code></pre>
+<p><code>if-else</code> (big blocks)</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="p">{</span><span class="nx">condition</span> <span class="o">?</span> <span class="p">(</span>
   <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span>
     <span class="nx">Rendered</span> <span class="nx">when</span> <span class="err">`</span><span class="nx">truthy</span><span class="err">`</span>
   <span class="o">&lt;</span><span class="err">/span&gt;</span>
@@ -180,39 +197,44 @@ code, .highlight pre{font-size: .9em}
 <span class="p">)}</span>
 </pre></div>
 
-</code></pre><h2 id="children-types">Children types</h2>
+</code></pre>
+<h2 id="children-types">Children types</h2>
 <p>React can render <code>children</code> of many types. In most cases it’s either an <code>array</code> or a <code>string</code>.</p>
 <p><code>string</code></p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
   <span class="nx">Hello</span> <span class="nx">World</span><span class="o">!</span>
 <span class="o">&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><p><code>array</code></p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+</code></pre>
+<p><code>array</code></p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
   <span class="p">{[</span><span class="s2">&quot;Hello &quot;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">World</span><span class="o">&lt;</span><span class="err">/span&gt;, &quot;!&quot;]}</span>
 <span class="o">&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><p>Functions may be used as children. However, it requires <a href="#Render callback">coordination with the parent component</a> to be useful.</p>
+</code></pre>
+<p>Functions may be used as children. However, it requires <a href="#Render callback">coordination with the parent component</a> to be useful.</p>
 <p><code>function</code></p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
   <span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;hello world!&quot;</span><span class="p">}()}</span>
 <span class="o">&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><h2 id="array-as-children">Array as children</h2>
+</code></pre>
+<h2 id="array-as-children">Array as children</h2>
 <p>Providing an array as <code>children</code> is a very common. It’s how lists are drawn in React.</p>
 <p>We use <code>map()</code> to create an array of React Elements for every value in the array.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
   <span class="p">{[</span><span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">].</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
     <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">item</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
   <span class="p">))}</span>
 <span class="o">&lt;</span><span class="err">/ul&gt;</span>
 </pre></div>
 
-</code></pre><p>That’s equivalent to providing a literal <code>array</code>.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+</code></pre>
+<p>That’s equivalent to providing a literal <code>array</code>.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
   <span class="p">{[</span>
     <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">first</span><span class="o">&lt;</span><span class="err">/li&gt;,</span>
     <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">second</span><span class="o">&lt;</span><span class="err">/li&gt;,</span>
@@ -220,40 +242,46 @@ code, .highlight pre{font-size: .9em}
 <span class="o">&lt;</span><span class="err">/ul&gt;</span>
 </pre></div>
 
-</code></pre><p>This pattern can be combined with destructuring, JSX Spread Attributes, and other components, for some serious terseness.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+</code></pre>
+<p>This pattern can be combined with destructuring, JSX Spread Attributes, and other components, for some serious terseness.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
   <span class="p">{</span><span class="nx">arrayOfMessageObjects</span><span class="p">.</span><span class="nx">map</span><span class="p">(({</span> <span class="nx">id</span><span class="p">,</span> <span class="p">...</span><span class="nx">message</span> <span class="p">})</span> <span class="o">=&gt;</span>
     <span class="o">&lt;</span><span class="nx">Message</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">id</span><span class="p">}</span> <span class="p">{...</span><span class="nx">message</span><span class="p">}</span> <span class="o">/&gt;</span>
   <span class="p">)}</span>
 <span class="o">&lt;</span><span class="err">/ul&gt;</span>
 </pre></div>
 
-</code></pre><h2 id="function-as-children">Function as children</h2>
+</code></pre>
+<h2 id="function-as-children">Function as children</h2>
 <p>Using a function as <code>children</code> isn’t inherently useful.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;hello world!&quot;</span><span class="p">}()}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;hello world!&quot;</span><span class="p">}()}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><p>However, it can be used in component authoring for some serious power. This technique is commonly referred to as <code>render callbacks</code>.</p>
+</code></pre>
+<p>However, it can be used in component authoring for some serious power. This technique is commonly referred to as <code>render callbacks</code>.</p>
 <p>This is a powerful technique used by libraries like <a href="https://github.com/chenglou/react-motion">ReactMotion</a>. When applied, rendering logic can be kept in the owner component, instead of being delegated.</p>
 <p>See <a href="#Render callback">Render callbacks</a>, for more details.</p>
 <h2 id="render-callback">Render callback</h2>
 <p>Here’s a component that uses a Render callback. It’s not useful, but it’s an easy illustration to start with.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Width</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">children</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Width</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">children</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
 </pre></div>
 
-</code></pre><p>The component calls <code>children</code> as a function, with some number of arguments. Here, it’s the number <code>500</code>.</p>
+</code></pre>
+<p>The component calls <code>children</code> as a function, with some number of arguments. Here, it’s the number <code>500</code>.</p>
 <p>To use this component, we give it a <a href="#Function as children">function as <code>children</code></a>.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">Width</span><span class="o">&gt;</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">Width</span><span class="o">&gt;</span>
   <span class="p">{</span><span class="nx">width</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nb">window</span> <span class="nx">is</span> <span class="p">{</span><span class="nx">width</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;}</span>
 <span class="o">&lt;</span><span class="err">/Width&gt;</span>
 </pre></div>
 
-</code></pre><p>We get this output.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nb">window</span> <span class="nx">is</span> <span class="mi">500</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+</code></pre>
+<p>We get this output.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nb">window</span> <span class="nx">is</span> <span class="mi">500</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
-</code></pre><p>With this setup, we can use this <code>width</code> to make rendering decisions.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">Width</span><span class="o">&gt;</span>
+</code></pre>
+<p>With this setup, we can use this <code>width</code> to make rendering decisions.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">Width</span><span class="o">&gt;</span>
   <span class="p">{</span><span class="nx">width</span> <span class="o">=&gt;</span>
     <span class="nx">width</span> <span class="o">&gt;</span> <span class="mi">600</span>
       <span class="o">?</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">min</span><span class="o">-</span><span class="nx">width</span> <span class="nx">requirement</span> <span class="nx">met</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
@@ -262,8 +290,9 @@ code, .highlight pre{font-size: .9em}
 <span class="o">&lt;</span><span class="err">/Width&gt;</span>
 </pre></div>
 
-</code></pre><p>If we plan to use this condition a lot, we can define another components to encapsulate the reused logic.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">MinWidth</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">width</span><span class="o">:</span> <span class="nx">minWidth</span><span class="p">,</span> <span class="nx">children</span> <span class="p">})</span> <span class="o">=&gt;</span>
+</code></pre>
+<p>If we plan to use this condition a lot, we can define another components to encapsulate the reused logic.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">MinWidth</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">width</span><span class="o">:</span> <span class="nx">minWidth</span><span class="p">,</span> <span class="nx">children</span> <span class="p">})</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">Width</span><span class="o">&gt;</span>
     <span class="p">{</span><span class="nx">width</span> <span class="o">=&gt;</span>
       <span class="nx">width</span> <span class="o">&gt;</span> <span class="nx">minWidth</span>
@@ -273,8 +302,9 @@ code, .highlight pre{font-size: .9em}
   <span class="o">&lt;</span><span class="err">/Width&gt;</span>
 </pre></div>
 
-</code></pre><p>Obviously a static <code>Width</code> component isn’t useful but one that watches the browser window is. Here’s a sample implementation.</p>
-<pre><code><div class="highlight"><pre><span class="kr">class</span> <span class="nx">WindowWidth</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+</code></pre>
+<p>Obviously a static <code>Width</code> component isn’t useful but one that watches the browser window is. Here’s a sample implementation.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">class</span> <span class="nx">WindowWidth</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
   <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
     <span class="kr">super</span><span class="p">()</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span>
@@ -297,10 +327,11 @@ code, .highlight pre{font-size: .9em}
 <span class="p">}</span>
 </pre></div>
 
-</code></pre><p>Many developers favor <a href="#Higher-order component">Higher Order Components</a> for this type of functionality. It’s a matter of preference.</p>
+</code></pre>
+<p>Many developers favor <a href="#Higher-order component">Higher Order Components</a> for this type of functionality. It’s a matter of preference.</p>
 <h2 id="children-pass-through">Children pass-through</h2>
 <p>You might create a component designed to apply <code>context</code> and render its <code>children</code>.</p>
-<pre><code><div class="highlight"><pre><span class="kr">class</span> <span class="nx">SomeContextProvider</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">class</span> <span class="nx">SomeContextProvider</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
   <span class="nx">getChildContext</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span><span class="nx">some</span><span class="o">:</span> <span class="s2">&quot;context&quot;</span><span class="p">}</span>
   <span class="p">}</span>
@@ -311,45 +342,52 @@ code, .highlight pre{font-size: .9em}
 <span class="p">}</span>
 </pre></div>
 
-</code></pre><p>You’re faced with a decision. Wrap <code>children</code> in an extraneous <code>&lt;div /&gt;</code> or return <code>children</code> directly. The first options gives you extra markup (which can break some stylesheets). The second will result in unhelpful errors.</p>
-<pre><code><div class="highlight"><pre><span class="c1">// option 1: extra div</span>
+</code></pre>
+<p>You’re faced with a decision. Wrap <code>children</code> in an extraneous <code>&lt;div /&gt;</code> or return <code>children</code> directly. The first options gives you extra markup (which can break some stylesheets). The second will result in unhelpful errors.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="c1">// option 1: extra div</span>
 <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 
 <span class="c1">// option 2: unhelpful errors</span>
 <span class="k">return</span> <span class="nx">children</span>
 </pre></div>
 
-</code></pre><p>It’s best to treat <code>children</code> as an opaque data type. React provides <code>React.Children</code> for dealing with <code>children</code> appropriately.</p>
-<pre><code><div class="highlight"><pre><span class="k">return</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Children</span><span class="p">.</span><span class="nx">only</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span>
+</code></pre>
+<p>It’s best to treat <code>children</code> as an opaque data type. React provides <code>React.Children</code> for dealing with <code>children</code> appropriately.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="k">return</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Children</span><span class="p">.</span><span class="nx">only</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span>
 </pre></div>
 
-</code></pre><h2 id="proxy-component">Proxy component</h2>
+</code></pre>
+<h2 id="proxy-component">Proxy component</h2>
 <p><em>(I’m not sure if this name makes sense)</em></p>
 <p>Buttons are everywhere in web apps. And every one of them must have the <code>type</code> attribute set to “button”.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="o">&gt;</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="o">&gt;</span>
 </pre></div>
 
-</code></pre><p>Writing this attribute hundreds of times is error prone. We can write a higher level component to proxy <code>props</code> to a lower-level <code>button</code> component.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Button</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span>
+</code></pre>
+<p>Writing this attribute hundreds of times is error prone. We can write a higher level component to proxy <code>props</code> to a lower-level <code>button</code> component.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Button</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="o">&gt;</span>
 </pre></div>
 
-</code></pre><p>We can use <code>Button</code> in place of <code>button</code> and ensure that the <code>type</code> attribute is consistently applied everywhere.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">Button</span> <span class="o">/&gt;</span>
+</code></pre>
+<p>We can use <code>Button</code> in place of <code>button</code> and ensure that the <code>type</code> attribute is consistently applied everywhere.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">Button</span> <span class="o">/&gt;</span>
 <span class="c1">// &lt;button type=&quot;button&quot;&gt;&lt;button&gt;</span>
 
 <span class="o">&lt;</span><span class="nx">Button</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;CTA&quot;</span><span class="o">&gt;</span><span class="nx">Send</span> <span class="nx">Money</span><span class="o">&lt;</span><span class="err">/Button&gt;</span>
 <span class="c1">// &lt;button type=&quot;button&quot; class=&quot;CTA&quot;&gt;Send Money&lt;/button&gt;</span>
 </pre></div>
 
-</code></pre><h2 id="style-component">Style component</h2>
+</code></pre>
+<h2 id="style-component">Style component</h2>
 <p>This is a <a href="#Proxy component">Proxy component</a> applied to the practices of style.</p>
 <p>Say we have a button. It uses classes to be styled as a “primary” button.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;btn btn-primary&quot;</span><span class="o">&gt;</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;btn btn-primary&quot;</span><span class="o">&gt;</span>
 </pre></div>
 
-</code></pre><p>We can generate this output using a couple single-purpose components.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">PrimaryBtn</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span>
+</code></pre>
+<p>We can generate this output using a couple single-purpose components.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">PrimaryBtn</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">Btn</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span> <span class="nx">primary</span> <span class="o">/&gt;</span>
 
 <span class="kr">const</span> <span class="nx">Btn</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">className</span><span class="p">,</span> <span class="nx">primary</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">})</span> <span class="o">=&gt;</span>
@@ -364,33 +402,38 @@ code, .highlight pre{font-size: .9em}
   <span class="o">/&gt;</span>
 </pre></div>
 
-</code></pre><p>It can help to visualize this.</p>
-<pre><code><div class="highlight"><pre><span class="nx">PrimaryBtn</span><span class="p">()</span>
+</code></pre>
+<p>It can help to visualize this.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="nx">PrimaryBtn</span><span class="p">()</span>
   <span class="err">↳</span> <span class="nx">Btn</span><span class="p">({</span><span class="nx">primary</span><span class="o">:</span> <span class="kc">true</span><span class="p">})</span>
     <span class="err">↳</span> <span class="nx">Button</span><span class="p">({</span><span class="nx">className</span><span class="o">:</span> <span class="s2">&quot;btn btn-primary&quot;</span><span class="p">},</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;button&quot;</span><span class="p">})</span>
       <span class="err">↳</span> <span class="s1">&#39;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;&lt;/button&gt;&#39;</span>
 </pre></div>
 
-</code></pre><p>Using these components, all of these result in the same output.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">PrimaryBtn</span> <span class="o">/&gt;</span>
+</code></pre>
+<p>Using these components, all of these result in the same output.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">PrimaryBtn</span> <span class="o">/&gt;</span>
 <span class="o">&lt;</span><span class="nx">Btn</span> <span class="nx">primary</span> <span class="o">/&gt;</span>
 <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;btn btn-primary&quot;</span> <span class="o">/&gt;</span>
 </pre></div>
 
-</code></pre><p>This can be a huge boon to style maintenance. It isolates all concerns of style to a single component.</p>
+</code></pre>
+<p>This can be a huge boon to style maintenance. It isolates all concerns of style to a single component.</p>
 <h2 id="event-switch">Event switch</h2>
 <p>When writing event handlers it’s common to adopt the <code>handle{eventName}</code> naming convention.</p>
-<pre><code><div class="highlight"><pre><span class="nx">handleClick</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* do something */</span> <span class="p">}</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="nx">handleClick</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* do something */</span> <span class="p">}</span>
 </pre></div>
 
-</code></pre><p>For components that handle several event types, these function names can be repetitive. The names themselves might not provide much value, as they simply proxy to other actions/functions.</p>
-<pre><code><div class="highlight"><pre><span class="nx">handleClick</span><span class="p">()</span> <span class="p">{</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./actions/doStuff&quot;</span><span class="p">)(</span><span class="cm">/* action stuff */</span><span class="p">)</span> <span class="p">}</span>
+</code></pre>
+<p>For components that handle several event types, these function names can be repetitive. The names themselves might not provide much value, as they simply proxy to other actions/functions.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="nx">handleClick</span><span class="p">()</span> <span class="p">{</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./actions/doStuff&quot;</span><span class="p">)(</span><span class="cm">/* action stuff */</span><span class="p">)</span> <span class="p">}</span>
 <span class="nx">handleMouseEnter</span><span class="p">()</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">hovered</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})</span> <span class="p">}</span>
 <span class="nx">handleMouseLeave</span><span class="p">()</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">hovered</span><span class="o">:</span> <span class="kc">false</span> <span class="p">})</span> <span class="p">}</span>
 </pre></div>
 
-</code></pre><p>Consider writing a single event handler for your component and switching on <code>event.type</code>.</p>
-<pre><code><div class="highlight"><pre><span class="nx">handleEvent</span><span class="p">({</span><span class="nx">type</span><span class="p">})</span> <span class="p">{</span>
+</code></pre>
+<p>Consider writing a single event handler for your component and switching on <code>event.type</code>.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="nx">handleEvent</span><span class="p">({</span><span class="nx">type</span><span class="p">})</span> <span class="p">{</span>
   <span class="k">switch</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">case</span> <span class="s2">&quot;click&quot;</span><span class="o">:</span>
       <span class="k">return</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./actions/doStuff&quot;</span><span class="p">)(</span><span class="cm">/* action dates */</span><span class="p">)</span>
@@ -404,23 +447,26 @@ code, .highlight pre{font-size: .9em}
 <span class="p">}</span>
 </pre></div>
 
-</code></pre><p>Alternatively, for simple components, you can call imported actions/functions directly from components, using arrow functions.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">someImportedAction</span><span class="p">({</span> <span class="nx">action</span><span class="o">:</span> <span class="s2">&quot;DO_STUFF&quot;</span> <span class="p">})}</span>
+</code></pre>
+<p>Alternatively, for simple components, you can call imported actions/functions directly from components, using arrow functions.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">someImportedAction</span><span class="p">({</span> <span class="nx">action</span><span class="o">:</span> <span class="s2">&quot;DO_STUFF&quot;</span> <span class="p">})}</span>
 </pre></div>
 
-</code></pre><p>Don’t fret about performance optimizations until you have problems. Seriously don’t.</p>
+</code></pre>
+<p>Don’t fret about performance optimizations until you have problems. Seriously don’t.</p>
 <h2 id="layout-component">Layout component</h2>
 <p>Layout components result in some form of static DOM element. It might not need to update frequently, if ever.</p>
 <p>Consider a component that renders two <code>children</code> side-by-side.</p>
-<pre><code><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">HorizontalSplit</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">HorizontalSplit</span>
   <span class="nx">leftSide</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">SomeSmartComponent</span> <span class="o">/&gt;</span><span class="p">}</span>
   <span class="nx">rightSide</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">AnotherSmartComponent</span> <span class="o">/&gt;</span><span class="p">}</span>
 <span class="o">/&gt;</span>
 </pre></div>
 
-</code></pre><p>We can aggressively optimize this component.</p>
+</code></pre>
+<p>We can aggressively optimize this component.</p>
 <p>While <code>HorizontalSplit</code> will be <code>parent</code> to both components, it will never be their <code>owner</code>. We can tell it to update never, without interrupting the lifecycle of the components inside.</p>
-<pre><code><div class="highlight"><pre><span class="kr">class</span> <span class="nx">HorizontalSplit</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">class</span> <span class="nx">HorizontalSplit</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
   <span class="nx">shouldComponentUpdate</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="kc">false</span>
   <span class="p">}</span>
@@ -434,10 +480,11 @@ code, .highlight pre{font-size: .9em}
 <span class="p">}</span>
 </pre></div>
 
-</code></pre><h2 id="container-component">Container component</h2>
+</code></pre>
+<h2 id="container-component">Container component</h2>
 <p>“A container does data fetching and then renders its corresponding sub-component. That’s it.”&mdash;<a href="https://twitter.com/jasonbonta">Jason Bonta</a></p>
 <p>Given this reusable <code>CommentList</code> component.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">CommentList</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">comments</span> <span class="p">})</span> <span class="o">=&gt;</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">CommentList</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">comments</span> <span class="p">})</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
     <span class="p">{</span><span class="nx">comments</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">comment</span> <span class="o">=&gt;</span>
       <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">comment</span><span class="p">.</span><span class="nx">body</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="nx">comment</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
@@ -445,8 +492,9 @@ code, .highlight pre{font-size: .9em}
   <span class="o">&lt;</span><span class="err">/ul&gt;</span>
 </pre></div>
 
-</code></pre><p>We can create a new component responsible for fetching data and rendering the stateless <code>CommentList</code> component.</p>
-<pre><code><div class="highlight"><pre><span class="kr">class</span> <span class="nx">CommentListContainer</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+</code></pre>
+<p>We can create a new component responsible for fetching data and rendering the stateless <code>CommentList</code> component.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">class</span> <span class="nx">CommentListContainer</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
   <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
     <span class="kr">super</span><span class="p">()</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">comments</span><span class="o">:</span> <span class="p">[]</span> <span class="p">}</span>
@@ -467,20 +515,22 @@ code, .highlight pre{font-size: .9em}
 <span class="p">}</span>
 </pre></div>
 
-</code></pre><p>We can write different containers for different application contexts.</p>
+</code></pre>
+<p>We can write different containers for different application contexts.</p>
 <h2 id="higher-order-component">Higher-order component</h2>
 <p>A <a href="https://en.wikipedia.org/wiki/Higher-order_function">higher-order function</a> is a function that takes and/or returns a function. It’s not more complicated than that. So, what’s a higher-order component?</p>
 <p>If you’re already using <a href="#Container component">container components</a>, these are just generic containers, wrapped up in a function.</p>
 <p>Let’s start with our stateless <code>Greeting</code> component.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Connecting</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/div&gt; }</span>
 
   <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
 <span class="p">}</span>
 </pre></div>
 
-</code></pre><p>If it gets <code>props.name</code>, it’s gonna render that data. Otherwise it’ll say that it’s “Connecting…”. Now for the the higher-order bit.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Connect</span> <span class="o">=</span> <span class="nx">ComposedComponent</span> <span class="o">=&gt;</span>
+</code></pre>
+<p>If it gets <code>props.name</code>, it’s gonna render that data. Otherwise it’ll say that it’s “Connecting…”. Now for the the higher-order bit.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Connect</span> <span class="o">=</span> <span class="nx">ComposedComponent</span> <span class="o">=&gt;</span>
   <span class="kr">class</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
     <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
       <span class="kr">super</span><span class="p">()</span>
@@ -503,13 +553,25 @@ code, .highlight pre{font-size: .9em}
   <span class="p">}</span>
 </pre></div>
 
-</code></pre><p>This is just a function that returns component that renders the component we passed as an argument.</p>
+</code></pre>
+<p>This is just a function that returns component that renders the component we passed as an argument.</p>
 <p>Last step, we need to wrap our our <code>Greeting</code> component in <code>Connect</code>.</p>
-<pre><code><div class="highlight"><pre><span class="kr">const</span> <span class="nx">ConnectedMyComponent</span> <span class="o">=</span> <span class="nx">Connect</span><span class="p">(</span><span class="nx">Greeting</span><span class="p">)</span>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">ConnectedMyComponent</span> <span class="o">=</span> <span class="nx">Connect</span><span class="p">(</span><span class="nx">Greeting</span><span class="p">)</span>
 </pre></div>
 
-</code></pre><p>This is a powerful pattern for providing fetching and providing data to any number of <a href="#Stateless function">stateless function components</a>.</p>
+</code></pre>
+<p>This is a powerful pattern for providing fetching and providing data to any number of <a href="#Stateless function">stateless function components</a>.</p>
 
   </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56273983-4', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </body>
 </html>
