@@ -15,6 +15,7 @@
 * [Layout component](#layout-component)
 * [Container component](#container-component)
 * [Higher-order component](#higher-order-component)
+* [Prop hoisting](#prop-hoisting)
 
 ## Stateless function
 
@@ -144,7 +145,7 @@ const Greeting = ({ name, ...props }) =>
   <div>Hi {name}!</div>
 ```
 
-In turn, this object can use [JSX Spread Attributes](#JSX Spread Attributes) to forward `props` to the composed component.
+In turn, this object can use [JSX Spread Attributes](#jsx-spread-attributes) to forward `props` to the composed component.
 
 ```js
 const Greeting = ({ name, ...props }) =>
@@ -214,7 +215,7 @@ React can render `children` of many types. In most cases it's either an `array` 
 </div>
 ```
 
-Functions may be used as children. However, it requires [coordination with the parent component](#Render callback) to be useful.
+Functions may be used as children. However, it requires [coordination with the parent component](#render-callback) to be useful.
 
 `function`
 
@@ -273,7 +274,7 @@ However, it can be used in component authoring for some serious power. This tech
 
 This is a powerful technique used by libraries like [ReactMotion](https://github.com/chenglou/react-motion). When applied, rendering logic can be kept in the owner component, instead of being delegated.
 
-See [Render callbacks](#Render callback), for more details.
+See [Render callbacks](#render-callback), for more details.
 
 ## Render callback
 
@@ -285,7 +286,7 @@ const Width = ({ children }) => children(500)
 
 The component calls `children` as a function, with some number of arguments. Here, it's the number `500`.
 
-To use this component, we give it a [function as `children`](#Function as children).
+To use this component, we give it a [function as `children`](#function-as-children).
 
 ```js
 <Width>
@@ -351,7 +352,7 @@ class WindowWidth extends React.Component {
 }
 ```
 
-Many developers favor [Higher Order Components](#Higher-order component) for this type of functionality. It's a matter of preference.
+Many developers favor [Higher Order Components](#higher-order-component) for this type of functionality. It's a matter of preference.
 
 
 ## Children pass-through
@@ -415,7 +416,7 @@ We can use `Button` in place of `button` and ensure that the `type` attribute is
 
 ## Style component
 
-This is a [Proxy component](#Proxy component) applied to the practices of style.
+This is a [Proxy component](#proxy-component) applied to the practices of style.
 
 Say we have a button. It uses classes to be styled as a "primary" button.
 
@@ -582,7 +583,7 @@ We can write different containers for different application contexts.
 
 A [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) is a function that takes and/or returns a function. It's not more complicated than that. So, what's a higher-order component?
 
-If you're already using [container components](#Container component), these are just generic containers, wrapped up in a function.
+If you're already using [container components](#container-component), these are just generic containers, wrapped up in a function.
 
 Let's start with our stateless `Greeting` component.
 
@@ -628,4 +629,4 @@ Last step, we need to wrap our our `Greeting` component in `Connect`.
 const ConnectedMyComponent = Connect(Greeting)
 ```
 
-This is a powerful pattern for providing fetching and providing data to any number of [stateless function components](#Stateless function).
+This is a powerful pattern for providing fetching and providing data to any number of [stateless function components](#stateless-function).

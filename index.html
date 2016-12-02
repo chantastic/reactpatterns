@@ -47,6 +47,7 @@ code, .highlight pre{font-size: .9em}
 <li><a href="#layout-component">Layout component</a></li>
 <li><a href="#container-component">Container component</a></li>
 <li><a href="#higher-order-component">Higher-order component</a></li>
+<li><a href="#prop-hoisting">Prop hoisting</a></li>
 </ul>
 <h2 id="stateless-function">Stateless function</h2>
 <p><a href="https://facebook.github.io/react/docs/components-and-props.html">Stateless functions</a> are a brilliant way to define highly reusable components. They don’t hold <code>state</code> or <code>refs</code>; they’re just functions.</p>
@@ -158,7 +159,7 @@ code, .highlight pre{font-size: .9em}
 </pre></div>
 
 </code></pre>
-<p>In turn, this object can use <a href="#JSX Spread Attributes">JSX Spread Attributes</a> to forward <code>props</code> to the composed component.</p>
+<p>In turn, this object can use <a href="#jsx-spread-attributes">JSX Spread Attributes</a> to forward <code>props</code> to the composed component.</p>
 <pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">})</span> <span class="o">=&gt;</span>
   <span class="o">&lt;</span><span class="nx">div</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
@@ -214,7 +215,7 @@ code, .highlight pre{font-size: .9em}
 </pre></div>
 
 </code></pre>
-<p>Functions may be used as children. However, it requires <a href="#Render callback">coordination with the parent component</a> to be useful.</p>
+<p>Functions may be used as children. However, it requires <a href="#render-callback">coordination with the parent component</a> to be useful.</p>
 <p><code>function</code></p>
 <pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
   <span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;hello world!&quot;</span><span class="p">}()}</span>
@@ -260,7 +261,7 @@ code, .highlight pre{font-size: .9em}
 </code></pre>
 <p>However, it can be used in component authoring for some serious power. This technique is commonly referred to as <code>render callbacks</code>.</p>
 <p>This is a powerful technique used by libraries like <a href="https://github.com/chenglou/react-motion">ReactMotion</a>. When applied, rendering logic can be kept in the owner component, instead of being delegated.</p>
-<p>See <a href="#Render callback">Render callbacks</a>, for more details.</p>
+<p>See <a href="#render-callback">Render callbacks</a>, for more details.</p>
 <h2 id="render-callback">Render callback</h2>
 <p>Here’s a component that uses a Render callback. It’s not useful, but it’s an easy illustration to start with.</p>
 <pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Width</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">children</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
@@ -268,7 +269,7 @@ code, .highlight pre{font-size: .9em}
 
 </code></pre>
 <p>The component calls <code>children</code> as a function, with some number of arguments. Here, it’s the number <code>500</code>.</p>
-<p>To use this component, we give it a <a href="#Function as children">function as <code>children</code></a>.</p>
+<p>To use this component, we give it a <a href="#function-as-children">function as <code>children</code></a>.</p>
 <pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">Width</span><span class="o">&gt;</span>
   <span class="p">{</span><span class="nx">width</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nb">window</span> <span class="nx">is</span> <span class="p">{</span><span class="nx">width</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;}</span>
 <span class="o">&lt;</span><span class="err">/Width&gt;</span>
@@ -328,7 +329,7 @@ code, .highlight pre{font-size: .9em}
 </pre></div>
 
 </code></pre>
-<p>Many developers favor <a href="#Higher-order component">Higher Order Components</a> for this type of functionality. It’s a matter of preference.</p>
+<p>Many developers favor <a href="#higher-order-component">Higher Order Components</a> for this type of functionality. It’s a matter of preference.</p>
 <h2 id="children-pass-through">Children pass-through</h2>
 <p>You might create a component designed to apply <code>context</code> and render its <code>children</code>.</p>
 <pre><code class="lang-js"><div class="highlight"><pre><span class="kr">class</span> <span class="nx">SomeContextProvider</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
@@ -380,7 +381,7 @@ code, .highlight pre{font-size: .9em}
 
 </code></pre>
 <h2 id="style-component">Style component</h2>
-<p>This is a <a href="#Proxy component">Proxy component</a> applied to the practices of style.</p>
+<p>This is a <a href="#proxy-component">Proxy component</a> applied to the practices of style.</p>
 <p>Say we have a button. It uses classes to be styled as a “primary” button.</p>
 <pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;btn btn-primary&quot;</span><span class="o">&gt;</span>
 </pre></div>
@@ -519,7 +520,7 @@ code, .highlight pre{font-size: .9em}
 <p>We can write different containers for different application contexts.</p>
 <h2 id="higher-order-component">Higher-order component</h2>
 <p>A <a href="https://en.wikipedia.org/wiki/Higher-order_function">higher-order function</a> is a function that takes and/or returns a function. It’s not more complicated than that. So, what’s a higher-order component?</p>
-<p>If you’re already using <a href="#Container component">container components</a>, these are just generic containers, wrapped up in a function.</p>
+<p>If you’re already using <a href="#container-component">container components</a>, these are just generic containers, wrapped up in a function.</p>
 <p>Let’s start with our stateless <code>Greeting</code> component.</p>
 <pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Connecting</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/div&gt; }</span>
@@ -560,7 +561,7 @@ code, .highlight pre{font-size: .9em}
 </pre></div>
 
 </code></pre>
-<p>This is a powerful pattern for providing fetching and providing data to any number of <a href="#Stateless function">stateless function components</a>.</p>
+<p>This is a powerful pattern for providing fetching and providing data to any number of <a href="#stateless-function">stateless function components</a>.</p>
 
   </div>
   <script>
