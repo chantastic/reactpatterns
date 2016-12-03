@@ -48,6 +48,7 @@ code, .highlight pre{font-size: .9em}
 <li><a href="#container-component">Container component</a></li>
 <li><a href="#higher-order-component">Higher-order component</a></li>
 <li><a href="#state-hoisting">State hoisting</a></li>
+<li><a href="#controlled-input">Controlled input</a></li>
 </ul>
 <h2 id="stateless-function">Stateless function</h2>
 <p><a href="https://facebook.github.io/react/docs/components-and-props.html">Stateless functions</a> are a brilliant way to define highly reusable components. They don’t hold <code>state</code>; they’re just functions.</p>
@@ -600,7 +601,53 @@ This sets a nice clear boundary and maximizes the re-usability of stateless func
 <p>This pattern isn’t limited to stateless functions.
 Because stateless function don’t have lifecycle events,
 you’ll use this pattern with component classes as well.</p>
+<p><em><a href="#controlled-input">Controlled input</a> is an important pattern to know for use with state hoisting</em></p>
 <p><em>(It’s best to process the event object on the stateful component)</em></p>
+<h2 id="controlled-input">Controlled input</h2>
+<p>It’s hard to talk about controlled inputs in the abstract.
+Let’s start with an uncontrolled (normal) input and go from there.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+
+</code></pre>
+<p>When you fiddle with this input in the browser, you see your changes.
+This is normal.</p>
+<p>A controlled input disallows the DOM mutations that make this possible.
+You set the <code>value</code> of the input in component-land and it doesn’t change in DOM-land.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;This won&#39;t change. Try it.&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+
+</code></pre>
+<p>Obviously static inputs aren’t very useful to your users.
+So, we derive a <code>value</code> from state.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">class</span> <span class="nx">ControlledNameInput</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">()</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span> <span class="o">/&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</code></pre>
+<p>Then, changing the input is a matter of changing component state.</p>
+<pre><code class="lang-js"><div class="highlight"><pre>    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">input</span>
+        <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span>
+        <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span>
+      <span class="o">/&gt;</span>
+    <span class="p">)</span>
+</pre></div>
+
+</code></pre>
+<p>This is a controlled input.
+It only updates the DOM when state has changed in our component.
+This is invaluable when creating consistent UIs.</p>
+<p><em>If you’re using <a href="#stateless-function">stateless functions</a> for form elements,
+read about using <a href="#state-hoisting">state hoisting</a> to move new state up the component tree.</em></p>
 
   </div>
   <script>
