@@ -47,7 +47,7 @@ code, .highlight pre{font-size: .9em}
 <li><a href="#layout-component">Layout component</a></li>
 <li><a href="#container-component">Container component</a></li>
 <li><a href="#higher-order-component">Higher-order component</a></li>
-<li><a href="#prop-hoisting">Prop hoisting</a></li>
+<li><a href="#state-hoisting">State hoisting</a></li>
 </ul>
 <h2 id="stateless-function">Stateless function</h2>
 <p><a href="https://facebook.github.io/react/docs/components-and-props.html">Stateless functions</a> are a brilliant way to define highly reusable components. They don’t hold <code>state</code> or <code>refs</code>; they’re just functions.</p>
@@ -562,6 +562,45 @@ code, .highlight pre{font-size: .9em}
 
 </code></pre>
 <p>This is a powerful pattern for providing fetching and providing data to any number of <a href="#stateless-function">stateless function components</a>.</p>
+<h2 id="state-hoisting">State hoisting</h2>
+<p><a href="#stateless-function">Stateless functions</a> don’t hold state (as the name implies).</p>
+<p>Events are changes in state.
+Their data needs to be passed to stateful <a href="#container-component">container components</a> parents.</p>
+<p>This is called “state hoisting”.
+It’s accomplished by passing a callback from a container component to a child component.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">class</span> <span class="nx">NameContainer</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Name</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="nx">newName</span> <span class="o">=&gt;</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">newName</span><span class="p">)}</span> <span class="o">/&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">Name</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">onChange</span> <span class="p">})</span> <span class="o">=&gt;</span>
+  <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">onChange</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span> <span class="o">/&gt;</span>
+</pre></div>
+
+</code></pre>
+<p><code>Name</code> receives an <code>onChange</code> callback from <code>NameContainer</code> and calls on events.</p>
+<p>The <code>alert</code> above makes for a terse demo but it’s not changing state.
+Let’s change the internal state of <code>NameContainer</code>.</p>
+<pre><code class="lang-js"><div class="highlight"><pre><span class="kr">class</span> <span class="nx">NameContainer</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">()</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Name</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="nx">newName</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="nx">newName</span><span class="p">})}</span> <span class="o">/&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</code></pre>
+<p>The state is <em>hoisted</em> to the container, by the provided callback, where it’s used to update local state.
+This sets a nice clear boundary and maximizes the re-usability of stateless function.</p>
+<p>This pattern isn’t limited to stateless functions.
+Given that a stateless function can’t keep <code>refs</code> or use lifecycle events,
+you’ll find yourself using this with component classes as well.</p>
+<p><em>(It’s best to process the event object on the stateful component)</em></p>
 
   </div>
   <script>
