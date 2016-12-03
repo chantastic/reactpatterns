@@ -50,7 +50,7 @@ code, .highlight pre{font-size: .9em}
 <li><a href="#state-hoisting">State hoisting</a></li>
 </ul>
 <h2 id="stateless-function">Stateless function</h2>
-<p><a href="https://facebook.github.io/react/docs/components-and-props.html">Stateless functions</a> are a brilliant way to define highly reusable components. They don’t hold <code>state</code> or <code>refs</code>; they’re just functions.</p>
+<p><a href="https://facebook.github.io/react/docs/components-and-props.html">Stateless functions</a> are a brilliant way to define highly reusable components. They don’t hold <code>state</code>; they’re just functions.</p>
 <pre><code class="lang-js"><div class="highlight"><pre><span class="kr">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Hi</span> <span class="nx">there</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 
@@ -598,8 +598,8 @@ Let’s change the internal state of <code>NameContainer</code>.</p>
 <p>The state is <em>hoisted</em> to the container, by the provided callback, where it’s used to update local state.
 This sets a nice clear boundary and maximizes the re-usability of stateless function.</p>
 <p>This pattern isn’t limited to stateless functions.
-Given that a stateless function can’t keep <code>refs</code> or use lifecycle events,
-you’ll find yourself using this with component classes as well.</p>
+Because stateless function don’t have lifecycle events,
+you’ll use this pattern with component classes as well.</p>
 <p><em>(It’s best to process the event object on the stateful component)</em></p>
 
   </div>

@@ -19,7 +19,7 @@
 
 ## Stateless function
 
-[Stateless functions](https://facebook.github.io/react/docs/components-and-props.html) are a brilliant way to define highly reusable components. They don't hold `state` or `refs`; they're just functions.
+[Stateless functions](https://facebook.github.io/react/docs/components-and-props.html) are a brilliant way to define highly reusable components. They don't hold `state`; they're just functions.
 
 ```js
 const Greeting = () => <div>Hi there!</div>
@@ -673,7 +673,7 @@ The state is _hoisted_ to the container, by the provided callback, where it's us
 This sets a nice clear boundary and maximizes the re-usability of stateless function.
 
 This pattern isn't limited to stateless functions.
-Given that a stateless function can't keep `refs` or use lifecycle events,
-you'll find yourself using this with component classes as well.
+Because stateless function don't have lifecycle events,
+you'll use this pattern with component classes as well.
 
 *(It's best to process the event object on the stateful component)*
