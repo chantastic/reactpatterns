@@ -722,7 +722,7 @@ Then, changing the input is a matter of changing component state.
     return (
       <input
         value={this.state.name}
-        onChange={e => this.setState(e.target.value)}
+        onChange={e => this.setState({ name: e.target.value })}
       />
     )
 ```
