@@ -2,7 +2,6 @@
 
 * [Stateless function](#stateless-function)
 * [JSX spread attributes](#jsx-spread-attributes)
-* [Destructuring arguments](#destructuring-arguments)
 * [Conditional rendering](#conditional-rendering)
 * [Children types](#children-types)
 * [Array as children](#array-as-children)
@@ -428,6 +427,8 @@ Say we have a button. It uses classes to be styled as a "primary" button.
 We can generate this output using a couple single-purpose components.
 
 ```js
+import classnames from 'classnames'
+
 const PrimaryBtn = props =>
   <Btn {...props} primary />
 
