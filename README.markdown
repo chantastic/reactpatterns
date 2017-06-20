@@ -2,6 +2,7 @@
 
 * [Stateless function](#stateless-function)
 * [JSX spread attributes](#jsx-spread-attributes)
+* [Destructuring arguments](#destructuring-arguments)
 * [Conditional rendering](#conditional-rendering)
 * [Children types](#children-types)
 * [Array as children](#array-as-children)
