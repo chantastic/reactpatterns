@@ -1,3 +1,7 @@
+## Translations
+
+- 🇧🇷 Português (Brasil)
+
 ## Contents
 
 * [Stateless function](#stateless-function)
