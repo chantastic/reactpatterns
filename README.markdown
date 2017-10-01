@@ -1,6 +1,6 @@
 ## Translations
 
-- 🇧🇷 Português (Brasil)
+- 🇧🇷 [Português (Brasil)](https://medium.com/@oieduardorabelo/padr%C3%B5es-em-react-criando-componentes-d35422034d75)
 
 ## Contents
 
