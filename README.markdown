@@ -222,7 +222,7 @@ Functions may be used as children. However, it requires [coordination with the p
 
 ```js
 <div>
-  {() => { return "hello world!"}()}
+  {(() => { return "hello world!"})()}
 </div>
 ```
 
