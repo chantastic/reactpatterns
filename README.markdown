@@ -98,7 +98,7 @@ Now, I can expect `FancyDiv` to add the attributes it's concerned with as well a
 ```js
 <FancyDiv data-id="my-fancy-div">So Fancy</FancyDiv>
 
-// output: <div className="fancy" data-id="my-fancy-div">So Fancy</div>
+// output: <div class="fancy" data-id="my-fancy-div">So Fancy</div>
 ```
 
 Keep in mind that order matters. If `props.className` is defined, it'll clobber the `className` defined by `FancyDiv`
