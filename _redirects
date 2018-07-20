@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+http://reactpatterns.netlify.com/* http://reactpatterns.com/:splat 301!
