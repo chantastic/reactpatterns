@@ -255,11 +255,11 @@ That's equivalent to providing a literal `array`.
 This pattern can be combined with destructuring, JSX Spread Attributes, and other components, for some serious terseness.
 
 ```js
-<ul>
+<div>
   {arrayOfMessageObjects.map(({ id, ...message }) =>
     <Message key={id} {...message} />
   )}
-</ul>
+</div>
 ```
 
 

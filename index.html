@@ -230,11 +230,11 @@ code, .highlight pre{font-size: .9em}
 </pre></div>
 </code></pre>
 <p>This pattern can be combined with destructuring, JSX Spread Attributes, and other components, for some serious terseness.</p>
-<pre><code class="language-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+<pre><code class="language-js"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
   <span class="p">{</span><span class="nx">arrayOfMessageObjects</span><span class="p">.</span><span class="nx">map</span><span class="p">(({</span> <span class="nx">id</span><span class="p">,</span> <span class="p">...</span><span class="nx">message</span> <span class="p">})</span> <span class="o">=&gt;</span>
     <span class="o">&lt;</span><span class="nx">Message</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">id</span><span class="p">}</span> <span class="p">{...</span><span class="nx">message</span><span class="p">}</span> <span class="o">/&gt;</span>
   <span class="p">)}</span>
-<span class="o">&lt;</span><span class="err">/ul&gt;</span>
+<span class="o">&lt;</span><span class="err">/div&gt;</span>
 </pre></div>
 </code></pre>
 <h2 id="function-as-children">Function as children</h2>
