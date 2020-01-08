@@ -5,7 +5,7 @@
   "dependencies": {
     "consolidate": "^0.14.5",
     "lodash": "^4.17.2",
-    "marked": "^0.3.6",
+    "marked": "^0.3.18",
     "pygmentize-bundled": "^2.3.0"
   }
 }
