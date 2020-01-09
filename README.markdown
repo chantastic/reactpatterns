@@ -358,35 +358,28 @@ Many developers favor [Higher Order Components](#higher-order-component) for thi
 
 ## Children pass-through
 
-You might create a component designed to apply `context` and render its `children`.
+There are times you'll need to wrap a stateless function with lifecycle events.
+While we want to wrap component functionality around other components, we don't want to introduce extraneous DOM nodes.
+In some apps, this might brake styling.
+
+We use the function `React.Children.only`.
+`only` allows us to return `this.props.children` __if__ there is only one child.
+Otherwise, it throws an error.
 
 ```js
-class SomeContextProvider extends React.Component {
-  getChildContext() {
-    return {some: "context"}
+class SomeLifeCycleWrapper extends React.Component {
+  componentDidMount() {
+    console.log("I mounted but have no DOM.")
   }
 
   render() {
-    // how best do we return `children`?
+    return React.Children.only(this.props.children)
   }
 }
 ```
 
-You're faced with a decision. Wrap `children` in an extraneous `<div />` or return `children` directly. The first options gives you extra markup (which can break some stylesheets). The second will result in unhelpful errors.
+In cases where you're working with `state` or `context`, prefer [higher-order components](#higher-order-component) or [render callbacks](#render-callback).
 
-```js
-// option 1: extra div
-return <div>{children}</div>
-
-// option 2: unhelpful errors
-return children
-```
-
-It's best to treat `children` as an opaque data type. React provides `React.Children` for dealing with `children` appropriately.
-
-```js
-return React.Children.only(this.props.children)
-```
 
 ## Proxy component
 
