@@ -4,7 +4,7 @@
   },
   "dependencies": {
     "consolidate": "^0.15.1",
-    "lodash": "^4.17.2",
+    "lodash": "^4.17.19",
     "marked": "^0.8.0",
     "pygmentize-bundled": "^2.3.0"
   }
